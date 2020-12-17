@@ -17,6 +17,7 @@ namespace ghost {
 		void move(bool collision);
 		void pathing(char** world);
 		void die();
+		void draw(char** world);
 		
 
 	private:

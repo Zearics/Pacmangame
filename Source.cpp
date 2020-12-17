@@ -42,11 +42,12 @@ int main()
 		world_1.deleteTile(pacXPos, pacYPos);
 		bool collision = world_1.collision(key, pacXPos, pacYPos);
 		pacman.move(collision);
+		world_1.setPacPos(pacman.getXPos(), pacman.getYPos());
 
 		if (board)
 			delete board;
 		board = world_1.getWorld();
-		ghost_1.setTarget(pacXPos, pacYPos);
+		ghost_1.setTarget(pacman.getXPos(), pacman.getYPos());
 		ghost_1.pathing(board);
 		if (framecount < 10) {
 			world_1.deleteTile(ghost_1.getXPos(), ghost_1.getYPos());
@@ -57,8 +58,6 @@ int main()
 		else
 			framecount = 0;
 
-
-		world_1.setPacPos(pacman.getXPos(), pacman.getYPos());
 		world_1.drawWorld();
 		world_1.drawKey();
 
